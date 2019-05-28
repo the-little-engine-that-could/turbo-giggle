@@ -6,10 +6,10 @@ QUnit.module('character displays');
 
 test('renders template from data', assert => {
     const character = {
-        "character": "Bender",
-        "quote": "Bite my shiny metal ass.",
-        "image": "https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png"
-    }
+        'character': 'Bender',
+        'quote': 'Bite my shiny metal ass.',
+        'image': 'https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png'
+    };
 
     const charItem = new CharItem({ character });
     const render = charItem.renderTemplate();
@@ -22,6 +22,6 @@ test('renders template from data', assert => {
                 <blockquote>"Bite my shiny metal ass."</blockquote>
             </p>
         </li>
-    `)
+    `);
 });
 
