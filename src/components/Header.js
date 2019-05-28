@@ -5,7 +5,7 @@ class Header extends Component {
     renderTemplate() {
         return /*html*/ `
             <header>
-                <h1>Futurama!</h1>
+                <h1>FUTURAMA!</h1>
             </header>
         `;
     }

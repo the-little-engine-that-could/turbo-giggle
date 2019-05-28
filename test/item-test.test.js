@@ -15,7 +15,7 @@ test('renders template from data', assert => {
     const render = charItem.renderTemplate();
 
     assert.htmlEqual(render, /*html*/ `
-        <li>
+        <li class="char-item">
             <h2>Bender</h2>
             <img src="https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png" alt="Bender">
             <p>

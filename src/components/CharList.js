@@ -17,7 +17,7 @@ class CharList extends Component {
   
     renderTemplate() {
         return /*html*/ `
-            <ul>
+            <ul class="list">
 
 
             </ul>
