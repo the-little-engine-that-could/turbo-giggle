@@ -26,8 +26,8 @@ class App extends Component {
             })
             
             .finally(() => {
-                loading.update({ loading: false })
-            })
+                loading.update({ loading: false });
+            });
 
         return dom;
     }
