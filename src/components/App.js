@@ -20,7 +20,12 @@ class App extends Component {
         const loading = new Loading({ loading: true });
         main.appendChild(loading.render());
 
-        charApi.getChars()
+        const params = window.location.hash.slice(1);
+        const searchParams = new URLSearchParams(params);
+        const search = searchParams.get('search');
+
+
+        charApi.getChars(search)
             .then(characters => {
                 charList.update({ characters });
             })
