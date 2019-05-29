@@ -17,22 +17,31 @@ class App extends Component {
         const charList = new CharList({ characters: [] });
         main.appendChild(charList.render());
 
-        const loading = new Loading({ loading: true });
+        const loading = new Loading({ loading: false });
         main.appendChild(loading.render());
 
-        const params = window.location.hash.slice(1);
-        const searchParams = new URLSearchParams(params);
-        const search = searchParams.get('search');
+        function loadCharacters() {
+            const params = window.location.hash.slice(1);
+            const searchParams = new URLSearchParams(params);
+            const search = searchParams.get('search');
 
+            loading.update({ loading: true });
 
-        charApi.getChars(search)
-            .then(characters => {
-                charList.update({ characters });
-            })
-            
-            .finally(() => {
-                loading.update({ loading: false });
-            });
+            charApi.getChars(search)
+                .then(characters => {
+                    charList.update({ characters });
+                })
+                
+                .finally(() => {
+                    loading.update({ loading: false });
+                });
+        }
+
+        loadCharacters();
+
+        window.addEventListener('hashchange', () => {
+            loadCharacters();
+        });
 
         return dom;
     }
