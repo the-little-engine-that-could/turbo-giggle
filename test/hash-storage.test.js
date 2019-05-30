@@ -28,6 +28,16 @@ const hashStorage = {
         window.location.hash = newWindow;
         
         // return string
+    },
+
+    remove(key) {
+        const currentLocation = this.get();
+        // delete key out of currentLocation
+        delete currentLocation[key];
+        // return object with deleted key
+        const newWindow = QUERY.stringify(currentLocation);
+        window.location.hash = newWindow;
+        
     }
 };
 
@@ -73,6 +83,20 @@ test('only sets new props on location', assert => {
 
     // act
     hashStorage.set(queryProps);
+    const result = window.location.hash.slice(1);
+
+    // assert
+    assert.equal(result, expected);
+});
+
+test('removes key from storage', assert => {
+    // arrange
+    window.location.hash = 'search=shiny&page=1';
+    const key = 'page';
+    const expected = 'search=shiny';
+
+    // act
+    hashStorage.remove(key);
     const result = window.location.hash.slice(1);
 
     // assert
